@@ -4,8 +4,7 @@ import 'package:dcf_app/services/api/user/user_api_service.dart';
 
 class ApiService {
   final UserApiService _userApiService = serviceLocator<UserApiService>();
-  final ProjectApiService _projectApiService =
-      serviceLocator<ProjectApiService>();
+  final ProjectApiService _projectApiService = serviceLocator<ProjectApiService>();
 
   UserApiService get userApiService => _userApiService;
 

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages.dart';
-
-
+import 'pages/pages.dart';
 
 class Routes {
   static Map<String, WidgetBuilder> getRoute() {

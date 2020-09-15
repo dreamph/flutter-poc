@@ -1,50 +1,51 @@
-import 'package:dcf_app/ui/themes/light_color.dart';
-import 'package:dcf_app/ui/themes/theme.dart';
-import 'package:dcf_app/ui/widgets/extentions.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   static String routeName = "home";
 
-  HomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
-  _HomePageState createState() => _HomePageState();
+  State<StatefulWidget> createState() {
+    return _HomeState();
+  }
 }
 
-class _HomePageState extends State<HomePage> {
-  Widget _icon(IconData icon, {Color color = LightColor.iconColor}) {
-    return Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme.of(context).backgroundColor,
-          boxShadow: AppTheme.shadow),
-      child: Icon(
-        icon,
-        color: color,
-      ),
-    ).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(13)));
-  }
+class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height - 210,
-      child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        dragStartBehavior: DragStartBehavior.down,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My Flutter App'),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.red,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white.withOpacity(.60),
+        selectedFontSize: 14,
+        unselectedFontSize: 14,
+        onTap: (value) {
+          // Respond to item press.
+        },
+        items: [
+          BottomNavigationBarItem(
+            title: Text('Favorites'),
+            icon: Icon(Icons.favorite),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Music'),
+            icon: Icon(Icons.music_note),
+          ),
+          BottomNavigationBarItem(
+            title: Text('Places'),
+            icon: Icon(Icons.location_on),
+          ),
+          BottomNavigationBarItem(
+            title: Text('News'),
+            icon: Icon(Icons.library_books),
+          ),
+        ],
       ),
     );
   }
