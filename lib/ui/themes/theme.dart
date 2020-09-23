@@ -16,6 +16,11 @@ class AppTheme {
       primaryTextTheme:
           TextTheme(bodyText1: TextStyle(color: LightColor.titleTextColor)));
 
+  static ThemeData theme = ThemeData(
+      accentColor: Colors.red,
+      primaryColor: Colors.red
+  );
+
   static TextStyle titleStyle =
       const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
   static TextStyle subTitleStyle =

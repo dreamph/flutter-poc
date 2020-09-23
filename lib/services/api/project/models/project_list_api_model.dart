@@ -1,8 +1,0 @@
-
-class ProjectListRequest {
-
-}
-
-class ProjectListResponse {
-
-}

@@ -1,4 +1,4 @@
-import 'package:dcf_app/cores/constants/urls.dart';
+import 'package:dcf_app/configs/urls.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:meta/meta.dart';
 

@@ -1,4 +1,6 @@
-import 'package:dcf_app/cores/constants/env.dart';
+import 'dart:convert';
+
+import 'package:dcf_app/configs/env.dart';
 import 'package:dcf_app/cores/exceptions/exceptions.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -20,11 +22,14 @@ class ApiClient {
     dio.options.baseUrl = Env.data.apiBaseUrl;
     dio.options.connectTimeout = const Duration(minutes: 3).inMilliseconds;
     dio.options.receiveTimeout = const Duration(minutes: 3).inMilliseconds;
+    /*
     dio.interceptors.add(BadNetworkErrorInterceptor());
     dio.interceptors.add(InternalServerErrorInterceptor());
     dio.interceptors.add(AuthInterceptor());
     dio.interceptors.add(UnauthorizedInterceptor());
     dio.interceptors.add(ApiErrorMessageInterceptor());
+
+     */
 
     if (Env.data.debugApiClient) {
       dio.interceptors.add(PrettyDioLogger(
@@ -38,8 +43,8 @@ class ApiClient {
     }
   }
 
-  Future<Response> postAsync(String path,dynamic data) {
-    return  dio.post(path, data: data);
+  Future<Response> postAsync(String path, dynamic data) {
+    return dio.post(path, data: data);
   }
 
   Future<Response> post(
@@ -62,7 +67,7 @@ class ApiClient {
   }
 
   Future<Response> putAsync(String path, dynamic data) {
-      return dio.put(path, data: data);
+    return dio.put(path, data: data);
   }
 
   Future<Response> put(String path, dynamic data) async {
@@ -82,7 +87,7 @@ class ApiClient {
   }
 
   Future<Response> deleteAsync(String path) {
-      return dio.delete(path);
+    return dio.delete(path);
   }
 
   Future<Response> delete(String path) async {
@@ -102,7 +107,7 @@ class ApiClient {
   }
 
   Future<Response> getAsync(String path) {
-      return dio.get(path);
+    return dio.get(path);
   }
 
   Future<Response> get(String path) async {

@@ -3,14 +3,16 @@ import 'package:dcf_app/cores/network/network_info.dart';
 import 'package:dcf_app/services/api/api.dart';
 import 'package:dcf_app/services/api/project/project_api_service.dart';
 import 'package:dcf_app/services/api/user/user_api_service.dart';
-import 'package:dcf_app/ui/view_models/login_view_model.dart';
+import 'package:dcf_app/ui/pages/login/login_controller.dart';
 import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 
 GetIt serviceLocator = GetIt.instance;
 
 void setupServiceLocator() {
   //cores
   serviceLocator.registerLazySingleton<NetworkInfo>(() => NetworkInfo());
+  serviceLocator.registerLazySingleton<Logger>(() => Logger());
 
   // services
   serviceLocator.registerLazySingleton<ApiClient>(() => ApiClient());
@@ -20,5 +22,5 @@ void setupServiceLocator() {
   serviceLocator.registerLazySingleton<ApiService>(() => ApiService());
 
   // view models
-  serviceLocator.registerFactory<LoginViewModel>(() => LoginViewModel());
+  serviceLocator.registerFactory<LoginController>(() => LoginController());
 }

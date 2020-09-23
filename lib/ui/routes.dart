@@ -1,12 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'pages/pages.dart';
 
 class Routes {
-  static Map<String, WidgetBuilder> getRoute() {
-    return <String, WidgetBuilder>{
-      HomePage.routeName: (_) => HomePage(),
-      LoginPage.routeName: (_) => LoginPage(),
-    };
-  }
+  static final routes = [
+    GetPage(
+      name: HomeView.routeName,
+      page: () => HomeView(),
+    ),
+    GetPage(
+      name: LoginView.routeName,
+      page: () => LoginView(),
+    )
+  ];
 }
