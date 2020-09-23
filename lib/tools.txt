@@ -1,1 +1,3 @@
 https://javiercbk.github.io/json_to_dart/
+
+flutter pub run build_runner watch

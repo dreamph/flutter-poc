@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'dart:convert' as convert;
 import 'package:dcf_app/configs/service_locator.dart';
 import 'package:dcf_app/cores/api/api_client.dart';
 import 'package:dcf_app/cores/api/api_response.dart';
@@ -21,7 +21,7 @@ class UserApiService {
     Response response =
         await _client.post(baseURL + "/user/login", request.toJson());
 
-    var jsonResponse = jsonDecode(response.data);
+    var jsonResponse = jsonDecode(response.toString());
     if (response.statusCode == 200) {
       return ApiResponseBuilder.toSuccess<UserLoginResponse>(
           UserLoginResponse.fromJson(jsonResponse));
@@ -33,8 +33,7 @@ class UserApiService {
       UserListRequest request) async {
     Response response =
         await _client.post(baseURL + "/user/list", request.toJson());
-    print(response.data);
-    var jsonResponse = jsonDecode(response.data);
+    var jsonResponse = jsonDecode(response.toString());
 
     if (response.statusCode == 200) {
       return ApiResponseBuilder.toSuccess<UserListResponse>(

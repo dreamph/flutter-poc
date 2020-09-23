@@ -1,5 +1,6 @@
 class SharedPreferencesKeys {
   static const String AUTH_TOKEN = 'AUTH_TOKEN';
+  static const String USER_LOGIN = 'USER_LOGIN';
 
   static const String APP_LANGUAGE_SETTING = 'APP_LANGUAGE_SETTING';
 

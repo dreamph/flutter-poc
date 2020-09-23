@@ -1,3 +1,10 @@
+import 'package:json_annotation/json_annotation.dart';
+
+import 'package:dcf_app/cores/converts/json_converter.dart';
+part 'user_list_response.g.dart';
+
+@CustomDateTimeConverter()
+@JsonSerializable(nullable: true)
 class UserListResponse {
   List<Data> data;
   Page page;
@@ -6,29 +13,13 @@ class UserListResponse {
       this.data, 
       this.page});
 
-  UserListResponse.fromJson(dynamic json) {
-    if (json["data"] != null) {
-      data = [];
-      json["data"].forEach((v) {
-        data.add(Data.fromJson(v));
-      });
-    }
-    page = json["page"] != null ? Page.fromJson(json["page"]) : null;
-  }
+  factory UserListResponse.fromJson(Map<String, dynamic> json) => _$UserListResponseFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    if (data != null) {
-      map["data"] = data.map((v) => v.toJson()).toList();
-    }
-    if (page != null) {
-      map["page"] = page.toJson();
-    }
-    return map;
-  }
-
+  Map<String, dynamic> toJson() => _$UserListResponseToJson(this);
 }
 
+@CustomDateTimeConverter()
+@JsonSerializable(nullable: true)
 class Page {
   int pageNumber;
   int pageSize;
@@ -41,24 +32,13 @@ class Page {
       this.total, 
       this.totalPages});
 
-  Page.fromJson(dynamic json) {
-    pageNumber = json["pageNumber"];
-    pageSize = json["pageSize"];
-    total = json["total"];
-    totalPages = json["totalPages"];
-  }
+  factory Page.fromJson(Map<String, dynamic> json) => _$PageFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    map["pageNumber"] = pageNumber;
-    map["pageSize"] = pageSize;
-    map["total"] = total;
-    map["totalPages"] = totalPages;
-    return map;
-  }
-
+  Map<String, dynamic> toJson() => _$PageToJson(this);
 }
 
+@CustomDateTimeConverter()
+@JsonSerializable(nullable: true)
 class Data {
   Info info;
   State state;
@@ -66,37 +46,28 @@ class Data {
   Data({
       this.info, 
       this.state});
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
-  Data.fromJson(dynamic json) {
-    info = json["info"] != null ? Info.fromJson(json["info"]) : null;
-    state = json["state"] != null ? State.fromJson(json["state"]) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    if (info != null) {
-      map["info"] = info.toJson();
-    }
-    if (state != null) {
-      map["state"] = state.toJson();
-    }
-    return map;
-  }
+  Map<String, dynamic> toJson() => _$DataToJson(this);
 
 }
 
+@CustomDateTimeConverter()
+@JsonSerializable(nullable: true)
 class State {
   String bankAccountName;
   String bankAccountNumber;
   String bankCode;
   String bankName;
-  String birthDate;
+  //@JsonKey(fromJson: CustomDateTimeConverter.fromJsonData, toJson: CustomDateTimeConverter.toJsonData)
+  DateTime birthDate;
   String birthDay;
   String birthMonth;
   String birthYear;
   String businessType;
   String changeBy;
-  String changeDate;
+  //@JsonKey(fromJson: CustomDateTimeConverter.fromJsonData, toJson: CustomDateTimeConverter.toJsonData)
+  DateTime changeDate;
   String company;
   String corporateBusinessType;
   String corporateEmail;
@@ -105,7 +76,8 @@ class State {
   String corporateNameTh;
   String corporateNumber;
   String corporatePurpose;
-  String corporateRegistrationDate;
+  //@JsonKey(fromJson: CustomDateTimeConverter.fromJsonData, toJson: CustomDateTimeConverter.toJsonData)
+  DateTime corporateRegistrationDate;
   String corporateSymbol;
   String corporateTelephone;
   bool corporateTelephoneDisplay;
@@ -119,8 +91,8 @@ class State {
   String corporateUrlWebsite;
   bool corporateUrlWebsiteDisplay;
   String createBy;
-  String createDate;
-  String dipchipDate;
+  DateTime createDate;
+  DateTime dipchipDate;
   bool dipchipStatus;
   String displayName;
   String documentSubmitChannel;
@@ -137,10 +109,10 @@ class State {
   int investorScore;
   bool kycCorporateStatus;
   bool kycStatus;
-  String kycUpdatedDate;
+  DateTime kycUpdatedDate;
   String lastNameEn;
   String lastNameTh;
-  String loginLatest;
+  DateTime loginLatest;
   String loginName;
   String loginPassword;
   String marriageStatus;
@@ -233,160 +205,14 @@ class State {
       this.userSubtype, 
       this.userType});
 
-  State.fromJson(dynamic json) {
-    bankAccountName = json["bankAccountName"];
-    bankAccountNumber = json["bankAccountNumber"];
-    bankCode = json["bankCode"];
-    bankName = json["bankName"];
-    birthDate = json["birthDate"];
-    birthDay = json["birthDay"];
-    birthMonth = json["birthMonth"];
-    birthYear = json["birthYear"];
-    businessType = json["businessType"];
-    changeBy = json["changeBy"];
-    changeDate = json["changeDate"];
-    company = json["company"];
-    corporateBusinessType = json["corporateBusinessType"];
-    corporateEmail = json["corporateEmail"];
-    corporateEmailDisplay = json["corporateEmailDisplay"];
-    corporateNameEn = json["corporateNameEn"];
-    corporateNameTh = json["corporateNameTh"];
-    corporateNumber = json["corporateNumber"];
-    corporatePurpose = json["corporatePurpose"];
-    corporateRegistrationDate = json["corporateRegistrationDate"];
-    corporateSymbol = json["corporateSymbol"];
-    corporateTelephone = json["corporateTelephone"];
-    corporateTelephoneDisplay = json["corporateTelephoneDisplay"];
-    corporateType = json["corporateType"];
-    corporateUrlFacebook = json["corporateUrlFacebook"];
-    corporateUrlFacebookDisplay = json["corporateUrlFacebookDisplay"];
-    corporateUrlInstagram = json["corporateUrlInstagram"];
-    corporateUrlInstagramDisplay = json["corporateUrlInstagramDisplay"];
-    corporateUrlTwitter = json["corporateUrlTwitter"];
-    corporateUrlTwitterDisplay = json["corporateUrlTwitterDisplay"];
-    corporateUrlWebsite = json["corporateUrlWebsite"];
-    corporateUrlWebsiteDisplay = json["corporateUrlWebsiteDisplay"];
-    createBy = json["createBy"];
-    createDate = json["createDate"];
-    dipchipDate = json["dipchipDate"];
-    dipchipStatus = json["dipchipStatus"];
-    displayName = json["displayName"];
-    documentSubmitChannel = json["documentSubmitChannel"];
-    email = json["email"];
-    emailVerificationStatus = json["emailVerificationStatus"];
-    firstNameEn = json["firstNameEn"];
-    firstNameTh = json["firstNameTh"];
-    gender = json["gender"];
-    id = json["id"];
-    idCardNo = json["idCardNo"];
-    income = json["income"];
-    incomeMax = json["incomeMax"];
-    incomeMin = json["incomeMin"];
-    investorScore = json["investorScore"];
-    kycCorporateStatus = json["kycCorporateStatus"];
-    kycStatus = json["kycStatus"];
-    kycUpdatedDate = json["kycUpdatedDate"];
-    lastNameEn = json["lastNameEn"];
-    lastNameTh = json["lastNameTh"];
-    loginLatest = json["loginLatest"];
-    loginName = json["loginName"];
-    loginPassword = json["loginPassword"];
-    marriageStatus = json["marriageStatus"];
-    nationality = json["nationality"];
-    occupation = json["occupation"];
-    occupationType = json["occupationType"];
-    otpStatus = json["otpStatus"];
-    passportIdNo = json["passportIdNo"];
-    photo = json["photo"];
-    portraitUrl = json["portraitUrl"];
-    referenceCorporateName = json["referenceCorporateName"];
-    state = json["state"];
-    status = json["status"];
-    telephone = json["telephone"];
-    title = json["title"];
-    userSubtype = json["userSubtype"];
-    userType = json["userType"];
-  }
+  factory State.fromJson(Map<String, dynamic> json) => _$StateFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    map["bankAccountName"] = bankAccountName;
-    map["bankAccountNumber"] = bankAccountNumber;
-    map["bankCode"] = bankCode;
-    map["bankName"] = bankName;
-    map["birthDate"] = birthDate;
-    map["birthDay"] = birthDay;
-    map["birthMonth"] = birthMonth;
-    map["birthYear"] = birthYear;
-    map["businessType"] = businessType;
-    map["changeBy"] = changeBy;
-    map["changeDate"] = changeDate;
-    map["company"] = company;
-    map["corporateBusinessType"] = corporateBusinessType;
-    map["corporateEmail"] = corporateEmail;
-    map["corporateEmailDisplay"] = corporateEmailDisplay;
-    map["corporateNameEn"] = corporateNameEn;
-    map["corporateNameTh"] = corporateNameTh;
-    map["corporateNumber"] = corporateNumber;
-    map["corporatePurpose"] = corporatePurpose;
-    map["corporateRegistrationDate"] = corporateRegistrationDate;
-    map["corporateSymbol"] = corporateSymbol;
-    map["corporateTelephone"] = corporateTelephone;
-    map["corporateTelephoneDisplay"] = corporateTelephoneDisplay;
-    map["corporateType"] = corporateType;
-    map["corporateUrlFacebook"] = corporateUrlFacebook;
-    map["corporateUrlFacebookDisplay"] = corporateUrlFacebookDisplay;
-    map["corporateUrlInstagram"] = corporateUrlInstagram;
-    map["corporateUrlInstagramDisplay"] = corporateUrlInstagramDisplay;
-    map["corporateUrlTwitter"] = corporateUrlTwitter;
-    map["corporateUrlTwitterDisplay"] = corporateUrlTwitterDisplay;
-    map["corporateUrlWebsite"] = corporateUrlWebsite;
-    map["corporateUrlWebsiteDisplay"] = corporateUrlWebsiteDisplay;
-    map["createBy"] = createBy;
-    map["createDate"] = createDate;
-    map["dipchipDate"] = dipchipDate;
-    map["dipchipStatus"] = dipchipStatus;
-    map["displayName"] = displayName;
-    map["documentSubmitChannel"] = documentSubmitChannel;
-    map["email"] = email;
-    map["emailVerificationStatus"] = emailVerificationStatus;
-    map["firstNameEn"] = firstNameEn;
-    map["firstNameTh"] = firstNameTh;
-    map["gender"] = gender;
-    map["id"] = id;
-    map["idCardNo"] = idCardNo;
-    map["income"] = income;
-    map["incomeMax"] = incomeMax;
-    map["incomeMin"] = incomeMin;
-    map["investorScore"] = investorScore;
-    map["kycCorporateStatus"] = kycCorporateStatus;
-    map["kycStatus"] = kycStatus;
-    map["kycUpdatedDate"] = kycUpdatedDate;
-    map["lastNameEn"] = lastNameEn;
-    map["lastNameTh"] = lastNameTh;
-    map["loginLatest"] = loginLatest;
-    map["loginName"] = loginName;
-    map["loginPassword"] = loginPassword;
-    map["marriageStatus"] = marriageStatus;
-    map["nationality"] = nationality;
-    map["occupation"] = occupation;
-    map["occupationType"] = occupationType;
-    map["otpStatus"] = otpStatus;
-    map["passportIdNo"] = passportIdNo;
-    map["photo"] = photo;
-    map["portraitUrl"] = portraitUrl;
-    map["referenceCorporateName"] = referenceCorporateName;
-    map["state"] = state;
-    map["status"] = status;
-    map["telephone"] = telephone;
-    map["title"] = title;
-    map["userSubtype"] = userSubtype;
-    map["userType"] = userType;
-    return map;
-  }
+  Map<String, dynamic> toJson() => _$StateToJson(this);
 
 }
 
+@CustomDateTimeConverter()
+@JsonSerializable(nullable: true)
 class Info {
   String corporateLogoUrl;
   String userProfileImageUrl;
@@ -395,16 +221,8 @@ class Info {
       this.corporateLogoUrl, 
       this.userProfileImageUrl});
 
-  Info.fromJson(dynamic json) {
-    corporateLogoUrl = json["corporateLogoUrl"];
-    userProfileImageUrl = json["userProfileImageUrl"];
-  }
+  factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    map["corporateLogoUrl"] = corporateLogoUrl;
-    map["userProfileImageUrl"] = userProfileImageUrl;
-    return map;
-  }
+  Map<String, dynamic> toJson() => _$InfoToJson(this);
 
 }

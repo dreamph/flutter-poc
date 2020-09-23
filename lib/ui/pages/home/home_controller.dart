@@ -1,26 +1,21 @@
 import 'package:dcf_app/configs/service_locator.dart';
-import 'package:dcf_app/services/api/api.dart';
+import 'package:dcf_app/services/app_service.dart';
 
 import '../base_controller.dart';
 
 class HomeController extends BaseController {
-  final ApiService apiService = serviceLocator<ApiService>();
-
-  @override
-  void close() {
-  }
+  final AppService _appService = serviceLocator<AppService>();
 
   @override
   void init() {
-
-
   }
 
   @override
   void ready() {
-    // TODO: implement ready
   }
 
-
+  @override
+  void close() {
+  }
 
 }

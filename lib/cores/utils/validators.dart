@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 typedef ValidatorFn<T, U> = U Function(T value);
 
-class Validate {
+class ValidatorUtils {
   static ValidatorFn<String, String> tryAlpha([String error]) {
     return (String value) {
       if (value.isEmpty) {
