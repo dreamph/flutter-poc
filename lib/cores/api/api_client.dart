@@ -1,4 +1,3 @@
-import 'package:dcf_app/configs/env.dart';
 import 'package:dcf_app/cores/exceptions/exceptions.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -9,10 +8,12 @@ import 'api_errors/internal_server_api_error.dart';
 import 'api_errors/unauthorized_api_error.dart';
 
 class ApiClient {
+  String apiBaseUrl;
+  bool debugApiClient;
   final Dio dio = Dio();
 
-  ApiClient() {
-    dio.options.baseUrl = Env.data.apiBaseUrl;
+  ApiClient({this.apiBaseUrl, this.debugApiClient}) {
+    dio.options.baseUrl = this.apiBaseUrl;
     dio.options.connectTimeout = const Duration(minutes: 3).inMilliseconds;
     dio.options.receiveTimeout = const Duration(minutes: 3).inMilliseconds;
     /*
@@ -24,7 +25,7 @@ class ApiClient {
 
      */
 
-    if (Env.data.debugApiClient) {
+    if (this.debugApiClient) {
       dio.interceptors.add(PrettyDioLogger(
         requestHeader: true,
         requestBody: true,

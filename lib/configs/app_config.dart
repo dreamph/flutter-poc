@@ -1,5 +1,5 @@
-class UrlConstants {
-  UrlConstants._();
+class AppConfig {
+  AppConfig._();
 
   static const String PROD_API_URL = 'http://3.6.118.107:3001';
 

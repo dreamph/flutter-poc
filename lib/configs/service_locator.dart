@@ -8,6 +8,8 @@ import 'package:dcf_app/ui/pages/login/login_controller.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
+import 'app_config.dart';
+
 GetIt serviceLocator = GetIt.instance;
 
 void setupServiceLocator() {
@@ -19,7 +21,7 @@ void setupServiceLocator() {
   serviceLocator.registerLazySingleton<UserLoginService>(() => UserLoginService());
 
   // api services
-  serviceLocator.registerLazySingleton<ApiClient>(() => ApiClient());
+  serviceLocator.registerLazySingleton<ApiClient>(() => ApiClient(apiBaseUrl : AppConfig.DEV_API_BASE_URL, debugApiClient: true));
   serviceLocator.registerLazySingleton<ProjectApiService>(() => ProjectApiService());
   serviceLocator.registerLazySingleton<UserApiService>(() => UserApiService());
 

@@ -4,11 +4,10 @@ import 'package:dcf_app/ui/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'configs/env.dart';
 import 'configs/service_locator.dart';
+import 'message.dart';
 
 void main() {
-  Env.init();
   setupServiceLocator();
   runApp(App());
 }
@@ -22,6 +21,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       title: 'DCF App',
+      translations: Messages(), // your translations
+      locale: Locale('en', 'US'), // translations will be displayed in that locale
+      fallbackLocale: Locale('en', 'UK'),
       //home: LoginView(),
     );
   }

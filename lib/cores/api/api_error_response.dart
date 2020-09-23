@@ -1,8 +1,3 @@
-/// statusCode : 500
-/// timestamp : 1600758444860
-/// message : "Internal Error:JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name\n at [Source: (PushbackInputStream); line: 4, column: 2]"
-/// detail : "uri=/api/user/login;client=127.0.0.1;requestId=bf682848-1807-4db4-929e-edec17052a2d"
-
 class ApiErrorResponse {
   int _statusCode;
   int _timestamp;
