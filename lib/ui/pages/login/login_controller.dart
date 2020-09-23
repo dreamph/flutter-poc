@@ -5,6 +5,7 @@ import 'package:dcf_app/services/api/user/models/user_login_request.dart';
 import 'package:dcf_app/services/api/user/models/user_login_response.dart';
 import 'package:dcf_app/services/app_service.dart';
 import 'package:dcf_app/ui/pages/home/home_view.dart';
+import 'package:dcf_app/ui/pages/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,11 @@ class LoginController extends BaseController {
   @override
   void ready() async {}
 
-  void onLoginEvent() async {
+  void onRegisterClickEvent() async {
+    Get.toNamed(RegisterView.routeName);
+  }
+
+  void onLoginClickEvent() async {
     /*
     ApiResponse<UserListResponse> userListResponse = await apiService
         .userApiService
@@ -43,7 +48,7 @@ class LoginController extends BaseController {
           id: user.userInfo.id,
           accessToken: user.accessToken,
           refreshToken: user.refreshToken));
-      Get.to(HomeView());
+      Get.toNamed(HomeView.routeName);
     }
 
     update();

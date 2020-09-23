@@ -1,6 +1,7 @@
 import 'package:dcf_app/cores/converts/json_converter.dart';
 import 'package:dcf_app/services/api/models/limit.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'user_list_request.g.dart';
 
 @CustomDateTimeConverter()

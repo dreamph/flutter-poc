@@ -2,21 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'change_password_controller.dart';
+import 'register_controller.dart';
 
-class ChangePasswordView extends StatefulWidget {
-  static String routeName = "/changePassword";
+class RegisterView extends StatefulWidget {
+  static String routeName = "/register";
 
-  ChangePasswordView({Key key, this.title}) : super(key: key);
+  RegisterView({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ChangePasswordViewState createState() => _ChangePasswordViewState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
-class _ChangePasswordViewState extends State<ChangePasswordView> {
-  final ChangePasswordController ctrl = Get.put(ChangePasswordController());
+class _RegisterViewState extends State<RegisterView> {
+  final RegisterController ctrl = Get.put(RegisterController());
   final _formKey = GlobalKey<FormState>();
 
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);

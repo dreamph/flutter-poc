@@ -3,7 +3,7 @@ import 'package:dcf_app/services/app_service.dart';
 
 import '../base_controller.dart';
 
-class ChangePasswordController extends BaseController {
+class RegisterController extends BaseController {
   final AppService _appService = serviceLocator<AppService>();
 
   @override

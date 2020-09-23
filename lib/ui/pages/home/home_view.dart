@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'home_controller.dart';
 
 class HomeView extends StatefulWidget {
-  static String routeName = "home";
+  static String routeName = "/home";
 
   @override
   State<StatefulWidget> createState() {

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dcf_app/configs/env.dart';
 import 'package:dcf_app/cores/exceptions/exceptions.dart';
 import 'package:dio/dio.dart';
@@ -9,11 +7,6 @@ import 'api_errors/api_error_message_error.dart';
 import 'api_errors/bad_network_api_error.dart';
 import 'api_errors/internal_server_api_error.dart';
 import 'api_errors/unauthorized_api_error.dart';
-import 'interceptors/api_error_message_interceptor.dart';
-import 'interceptors/auth_interceptor.dart';
-import 'interceptors/bad_network_error_interceptor.dart';
-import 'interceptors/internal_server_error_interceptor.dart';
-import 'interceptors/unauthorized_interceptor.dart';
 
 class ApiClient {
   final Dio dio = Dio();

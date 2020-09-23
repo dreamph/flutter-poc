@@ -6,15 +6,18 @@ class AppTheme {
   const AppTheme();
 
   static ThemeData lightTheme = ThemeData(
-      backgroundColor: LightColor.background,
-      primaryColor: LightColor.background,
-      cardTheme: CardTheme(color: LightColor.background),
-      textTheme: TextTheme(bodyText1: TextStyle(color: LightColor.black)),
-      iconTheme: IconThemeData(color: LightColor.iconColor),
+      accentColor: Colors.red,
+      primaryColor: Colors.red,
+      //backgroundColor: LightColor.background,
+      //primaryColor: LightColor.background,
+      //cardTheme: CardTheme(color: LightColor.background),
+      //textTheme: TextTheme(bodyText1: TextStyle(color: LightColor.black)),
+      //iconTheme: IconThemeData(color: LightColor.iconColor),
       bottomAppBarColor: LightColor.background,
       dividerColor: LightColor.lightGrey,
-      primaryTextTheme:
-          TextTheme(bodyText1: TextStyle(color: LightColor.titleTextColor)));
+     // primaryTextTheme:
+      //    TextTheme(bodyText1: TextStyle(color: LightColor.titleTextColor))
+      );
 
   static ThemeData theme = ThemeData(
       accentColor: Colors.red,
