@@ -4,10 +4,12 @@ class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     'en_US': {
-      'appTitle': 'DCF App',
+      'app.title': 'DCF App',
+      'login.page.title': 'Login',
     },
     'th_TH': {
-      'appTitle': 'DCF App ไทย',
+      'app.title': 'DCF App',
+      'login.page.title': 'เข้าสู่ระบบ',
     }
   };
 }

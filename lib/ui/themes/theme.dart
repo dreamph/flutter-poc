@@ -24,6 +24,8 @@ class AppTheme {
       primaryColor: Colors.red
   );
 
+  static TextStyle textInputStyle = TextStyle(fontSize: 16.0);
+
   static TextStyle titleStyle =
       const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
   static TextStyle subTitleStyle =

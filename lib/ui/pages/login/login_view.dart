@@ -1,5 +1,6 @@
 import 'package:dcf_app/cores/utils/validators.dart';
 import 'package:dcf_app/ui/pages/home/home_view.dart';
+import 'package:dcf_app/ui/themes/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -22,13 +23,11 @@ class _LoginViewState extends State<LoginView> {
   final LoginController ctrl = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
 
-  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Login'),
+          title: Text('login.page.title'.tr),
         ),
         body: Form(
           key: _formKey,
@@ -116,9 +115,9 @@ class _LoginViewState extends State<LoginView> {
             ctrl.onLoginClickEvent();
           }
         },
-        child: Text("Login",
+        child: Text('login.page.title'.tr,
             textAlign: TextAlign.center,
-            style: style.copyWith(
+            style: AppTheme.textInputStyle.copyWith(
                 color: Colors.white, fontWeight: FontWeight.bold)),
       ),
     );
@@ -129,7 +128,7 @@ class _LoginViewState extends State<LoginView> {
       keyboardType: TextInputType.text,
       controller: ctrl.passwordController,
       obscureText: true,
-      style: style,
+      style: AppTheme.textInputStyle,
       decoration: InputDecoration(
         //contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         hintText: "Password",
@@ -144,7 +143,7 @@ class _LoginViewState extends State<LoginView> {
       keyboardType: TextInputType.emailAddress,
       controller: ctrl.emailController,
       obscureText: false,
-      style: style,
+      style: AppTheme.textInputStyle,
       decoration: InputDecoration(
         //contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         hintText: "Email",

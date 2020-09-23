@@ -16,14 +16,14 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: 'DCF App',
       initialRoute: LoginView.routeName,
       getPages: Routes.routes,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      title: 'DCF App',
       translations: Messages(), // your translations
-      locale: Locale('en', 'US'), // translations will be displayed in that locale
-      fallbackLocale: Locale('en', 'UK'),
+      locale: Locale('th', 'TH'), // translations will be displayed in that locale
+      fallbackLocale: Locale('en', 'US'),
       //home: LoginView(),
     );
   }
